@@ -22,4 +22,6 @@ git clone https://github.com/wizjin/nvim-config ~/.config/nvim
 - [Which Key](https://github.com/folke/which-key.nvim)
 - [Plenary](https://github.com/nvim-lua/plenary.nvim)
 - [Telescope](https://github.com/nvim-telescope/telescope.nvim)
+- [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
+- [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
 

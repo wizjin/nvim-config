@@ -42,6 +42,10 @@ wk.register({
 		w = { '<cmd>:wincmd w<cr>', 'Go to next' },
 		W = { '<cmd>:wincmd W<cr>', 'Go to previous' }
 	},
+	u = {
+		name = 'Utils',
+		j = { '<cmd>:%!jq .<cr>', 'Json formatter' }
+	},
 	h = {
 		name = 'Help',
 		h = { '<cmd>:help<cr>', 'NeoVim' },

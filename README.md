@@ -11,6 +11,7 @@ git clone https://github.com/wizjin/nvim-config ~/.config/nvim
 ## Requirements
 
 [NeoVim](https://github.com/neovim/neovim)
+[JQ](https://github.com/jqlang/jq)
 
 ## Plugins
 

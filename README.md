@@ -6,6 +6,8 @@ NeoVim configuration.
 
 ```bash
 git clone https://github.com/wizjin/nvim-config ~/.config/nvim
+brew install lua-language-server
+brew install rust-analyzer
 ```
 
 ## Requirements
@@ -25,4 +27,5 @@ git clone https://github.com/wizjin/nvim-config ~/.config/nvim
 - [Telescope](https://github.com/nvim-telescope/telescope.nvim)
 - [Indent Blankline](https://github.com/lukas-reineke/indent-blankline.nvim)
 - [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
-
+- [LSP Config](https://github.com/neovim/nvim-lspconfig)
+- [NVim CMP](https://github.com/hrsh7th/nvim-cmp)

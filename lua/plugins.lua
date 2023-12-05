@@ -55,20 +55,19 @@ return require('packer').startup(function(use)
 	use {
 		'nvim-telescope/telescope.nvim', branch = '0.1.x',
 		config = function()
-			require('telescope').setup()	
+			require('telescope').setup()
 		end
 	}
 	use {
 		'lukas-reineke/indent-blankline.nvim',
 		config = function()
-			require('indent_blankline').setup {
-				show_current_context = true,
-				show_current_context_start = true
+			require('ibl').setup {
+				indent = { char = '│' }
 			}
 		end
 	}
 	use {
-  		'lewis6991/gitsigns.nvim', tag = 'release',
+  		'lewis6991/gitsigns.nvim', tag = 'v0.7',
 		config = function()
     		require('gitsigns').setup()
 		end
@@ -80,11 +79,87 @@ return require('packer').startup(function(use)
 				ensure_installed = {
 					'c', 'lua', 'vim', 'vimdoc',
 					'bash', 'cpp', 'css', 'diff', 'dockerfile', 'html', 'make',
-					'markdown_inline', 'json', 'proto', 'python', 'sql', 'yaml'
+					'markdown_inline', 'javascript', 'json', 'proto', 'python',
+					'rust', 'sql', 'typescript', 'vue', 'yaml'
 				},
 				highlight = {
 					enable = true,
 					additional_vim_regex_highlighting = false,
+				}
+			}
+		end
+	}
+	use {
+		'neovim/nvim-lspconfig',
+		config = function()
+			local lspconfig = require('lspconfig')
+			lspconfig.setup {}
+			lspconfig.lua_ls.setup {}
+		end
+	}
+	use {
+		'simrat39/rust-tools.nvim',
+		config = function()
+			require('rust-tools').setup {
+				tools = {
+					runnables = { use_telescope = true },
+					inlay_hints = {
+						auto = true,
+						show_parameter_hints = false,
+						parameter_hints_prefix = '',
+						other_hints_prefix = ''
+					}
+				},
+				server = {
+					settings = {
+						['rust-analyzer'] = {
+							checkOnSave = { command = 'clippy' }
+						}
+					}
+				}
+			}
+		end
+	}
+	-- Autocompletion framework
+	use {
+		'hrsh7th/cmp-nvim-lsp',
+		'hrsh7th/cmp-vsnip',
+		'hrsh7th/cmp-path',
+		'hrsh7th/cmp-buffer',
+		after = { 'hrsh7th/nvim-cmp' },
+		requires = { 'hrsh7th/nvim-cmp' }
+	}
+	use 'hrsh7th/vim-vsnip'
+	use {
+		'hrsh7th/nvim-cmp',
+		config = function()
+			local cmp = require('cmp')
+			cmp.setup {
+				preselect = cmp.PreselectMode.None,
+				snippet = {
+					expand = function(args)
+						vim.fn['vsnip#anonymous'](args.body)
+					end
+				},
+				mapping = {
+					['<C-p>'] = cmp.mapping.select_prev_item(),
+					['<C-n>'] = cmp.mapping.select_next_item(),
+					['<S-Tab>'] = cmp.mapping.select_prev_item(),
+					['<Tab>'] = cmp.mapping.select_next_item(),
+					['<C-d>'] = cmp.mapping.scroll_docs(-4),
+					['<C-f>'] = cmp.mapping.scroll_docs(4),
+					['<C-Space>'] = cmp.mapping.complete(),
+					['<C-e>'] = cmp.mapping.close(),
+					['<CR>'] = cmp.mapping.confirm {
+						behavior = cmp.ConfirmBehavior.Insert,
+						select = true
+					}
+				},
+				sources = {
+					{ name = 'nvim_lsp' },
+					{ name = 'vsnip' },
+					{ name = 'path' },
+					{ name = 'buffer' }
 				}
 			}
 		end

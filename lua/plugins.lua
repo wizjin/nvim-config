@@ -93,8 +93,10 @@ return require('packer').startup(function(use)
 		'neovim/nvim-lspconfig',
 		config = function()
 			local lspconfig = require('lspconfig')
-			lspconfig.setup {}
+			lspconfig.clangd.setup {}
 			lspconfig.lua_ls.setup {}
+			lspconfig.pyright.setup {}
+			lspconfig.tsserver.setup {}
 		end
 	}
 	use {

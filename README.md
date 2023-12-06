@@ -7,7 +7,9 @@ NeoVim configuration.
 ```bash
 git clone https://github.com/wizjin/nvim-config ~/.config/nvim
 brew install lua-language-server
+brew install pyright
 brew install rust-analyzer
+brew install typescript-language-server
 ```
 
 ## Requirements

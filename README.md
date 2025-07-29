@@ -10,12 +10,16 @@ brew install lua-language-server
 brew install pyright
 brew install rust-analyzer
 brew install typescript-language-server
+brew install rg
+brew install fd 
 ```
 
 ## Requirements
 
-[NeoVim](https://github.com/neovim/neovim)
-[JQ](https://github.com/jqlang/jq)
+- [NeoVim](https://github.com/neovim/neovim)
+- [JQ](https://github.com/jqlang/jq)
+- [Ripgrep](https://github.com/BurntSushi/ripgrep)
+- [FD](https://github.com/sharkdp/fd)
 
 ## Plugins
 
@@ -31,3 +35,4 @@ brew install typescript-language-server
 - [Git Signs](https://github.com/lewis6991/gitsigns.nvim)
 - [LSP Config](https://github.com/neovim/nvim-lspconfig)
 - [NVim CMP](https://github.com/hrsh7th/nvim-cmp)
+- [Mini Icons](https://github.com/echasnovski/mini.icons)

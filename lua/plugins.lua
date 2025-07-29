@@ -100,7 +100,7 @@ return require('packer').startup(function(use)
 			lspconfig.clangd.setup {}
 			lspconfig.lua_ls.setup {}
 			lspconfig.pyright.setup {}
-			lspconfig.tsserver.setup {}
+			lspconfig.ts_ls.setup {}
 		end
 	}
 	use {

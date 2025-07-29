@@ -14,7 +14,7 @@ wk.add({
 -- Leader
 wk.add({
 	{ "<leader>f", group = "File" },
-	{ "<leadser>ff", telescope.find_files, desc = "Find file" },
+	{ "<leader>ff", telescope.find_files, desc = "Find file" },
 	{ "<leader>fr", telescope.oldfiles, desc = "Open recent file" },
 	{ "<leader>fb", telescope.buffers, desc = "Find buffer" },
 	{ "<leader>fg", telescope.live_grep, desc = "Live grep" },

@@ -96,25 +96,21 @@ return require('packer').startup(function(use)
 	use {
 		'neovim/nvim-lspconfig',
 		config = function()
-			local lspconfig = require('lspconfig')
-			lspconfig.clangd.setup {}
-			lspconfig.lua_ls.setup {}
-			lspconfig.pyright.setup {}
-			lspconfig.ts_ls.setup {}
+			vim.lsp.config('clangd', {})
+			vim.lsp.config('lua_ls', {})
+			vim.lsp.config('pyright', {})
+			vim.lsp.config('ts_ls', {})
+			vim.lsp.enable({ 'clangd', 'lua_ls', 'pyright', 'ts_ls' })
 		end
 	}
 	use {
-		'simrat39/rust-tools.nvim',
+		'mrcjkb/rustaceanvim',
+		version = '^5',
+		lazy = false,
 		config = function()
-			require('rust-tools').setup {
+			vim.g.rustaceanvim = {
 				tools = {
 					runnables = { use_telescope = true },
-					inlay_hints = {
-						auto = true,
-						show_parameter_hints = false,
-						parameter_hints_prefix = '',
-						other_hints_prefix = ''
-					}
 				},
 				server = {
 					settings = {
